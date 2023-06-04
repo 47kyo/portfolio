@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Anas oulahtak - portfolio</title>
+      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
+     
+      <script src="https://cdn.jsdelivr.net/npm/three@0.140.2/build/three.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/three@0.140.2/examples/js/controls/OrbitControls.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/three@0.140.2/examples/js/loaders/GLTFLoader.js"></script>
+      <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+
+
+      <link rel="stylesheet" href="global.css">
+      <link rel="stylesheet" href="landing.css">
+      <link rel="author" href="Anas Oulahtak">
+      <style>
+        html,body{ 
+          scroll-behavior: smooth;
+          overflow-x: hidden; 
+         }
+      </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo" ></div>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="#skills"  class="link link--dark"> ⭐ Skills</a></li>
+        <li class="menu__item"><a href="#education"  class="link link--dark"> 📚 Education</a></li>
+        <li class="menu__item"><a href="https://stackoverflow.com/users/15605565/kyo" target="_blank"  class="link link--dark"> <img src="icons/Stack_Overflow.png" width="22"/> stackoverflow</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1 class="hero__title glitch" data-text="ANAS OULAHTAK" >ANAS OULAHTAK</h1>
+    </div>
+    <div class="hero__terminal" style="position:relative">
+      <pre>
+        <!-- Place your demo code here -->
+        <code class="shell-session demo">C:\WINDOWS\system32> </code>
+      </pre>
+      <canvas class="webgl"></canvas> 
+    </div>
+    <div class="wrapper">
+      <div class="installation">
+        <h3 class="section__title">MY PROJECTS</h3>
+        <div class="tab__container">
+          <pre class="nohighlight code">
+            <code class="tab__pane active mac">
+                <div>
+                    <div class="feature__doc">
+                      <img src="img/1652270825865.jpg"  />
+                      <div>
+                        <p>Creating a system and website for a startup private school to manage students, teachers, and admins as well as providing distance education with real-time communication.</p>
+                        <a href="https://asmamicentre.com" target="_blank" class="keybinding__label">VISIT WEBSITE</a>
+                      </div>
+                    </div>
+                    <div class="feature__icons">
+                      <img src="icons/node.png"  />
+                      <img src="icons/Expressjs.png"  />
+                      <img src="icons/mysql.png"  />
+                      <img src="icons/redis.png"  />
+                      <img src="icons/jwt.png"  />
+                      <img src="icons/heroku.png"  />
+                      <img src="icons/bootstrap.png"  />
+                      <img src="icons/socketio.png"  />
+                      <img src="icons/webrtc.png"  />
+                      <img src="icons/recaptcha.png"  />
+                      <img src="icons/cloudfare.png"  />
+                    </div>
+                  </div>
+                  <hr />
+                  <div>
+                    <div class="feature__doc">
+                      <img src="img/1652271416300.jpg"  />
+                      <div>
+                  <p>I created a 2D game and its idea is to control a bird in the sky and try not to collide with other birds, the bird's energy decreases every time it flies, so you have to collect some equipment that you will find in order to help you pass the levels.</p>
+                  <a href="https://fannybird.netlify.app" target="_blank" class="keybinding__label">PLAY NOW</a>
+                </div>
+                </div>
+                <div class="feature__icons">
+                    <img src="icons/cordova.png" />
+                    <img src="icons/firebase.png" />
+                  </div>
+                </div>
+                <hr />
+                <div>
+                  <div class="feature__doc">
+                    <img src="img/1652270555498.jpg"  />
+                    <div>
+                  <p>Creating an application that allows employees to upload, manage, view, and print their company documents.</p>
+                  <a href="https://clou-d.herokuapp.com"  target="_blank" class="keybinding__label">TRY DEMO</a>
+                  <small class="alert">this demo is deployed on a free hosting, it may take from 5 to 10 seconds to open it</small>
+                </div>
+              </div>
+
+              <div class="feature__icons">
+                    <img src="icons/next.png" />
+                    <img src="icons/react.png" />
+                    <img src="icons/node.png" />
+                    <img src="icons/Expressjs.png" />
+                    <img src="icons/mysql.png" />
+                    <img src="icons/jwt.png" />
+                    <img src="icons/heroku.png" />
+                  </div>
+                </div>
+                <hr />
+                <div>
+                  <div class="feature__doc">
+                    <img src="img/5454110251541.jpg"  />
+                    <div>
+                  <p>A small JS library that comes up with a new idea which is Peer-to-Peer files sharing between devices using browsers as a bridge by saving the file shank by shank directly to the hard drive instead of using browsers blob storage, the goal of this library is to send files with huge sizes.</p>
+                  <a href="https://peerasjs.herokuapp.com" target="_blank" class="keybinding__label">TRY DEMO</a>
+                  <small class="alert">this demo is deployed on a free hosting, it may take from 5 to 10 seconds to open it</small>
+                </div>
+              </div>
+              <div class="feature__icons">
+                    <img src="icons/js.png" />
+                  </div>
+                </div>  
+                  <hr />
+
+                  <div class="button--container">
+                    <a class="button--primary">LOAD MORE</a>
+                  </div>  
+
+                  <div class="hidden">
+                    <div>
+                      <div class="feature__doc">
+                        <img src="img/1652271416314.jpg"  />
+                        <div>
+                      <p>Creating a cross-platform application for a university laboratory to detect the growth of bacteria in different environments. It shows the growth rate of the bacteria on a chart that updates itself by entering different values of the environment components such as PH, sugar, Oxygen etc.</p>
+                      <a href="PFE.pdf"  target="_blank" class="keybinding__label">REPORT</a>
+                    </div>
+                  </div>
+                  <div class="feature__icons">
+                        <img src="icons/mysql.png" />
+                        <img src="icons/vs.png" />
+                        <img src="icons/C-sharp.png" />
+                        <img src="icons/400px-UML_logo.svg.png" />
+                        <img src="icons/bunifu.png" />
+                      </div>
+                    </div>
+                   <hr />
+                    <div>
+                      <div class="feature__doc">
+                        <img src="img/1652271416301.jpg"  />
+                        <div>
+                    <p>This is a famous Moroccan card game. The basic idea of this game is that each player gets 3 cards out of 40, and every time he finishes his cards, you will play against a CPU that uses a little artificial intelligence, so the CPU knows which card to play in each turn and what will allow it to get the maximum number of points.</p>
+                    <a href="https://rondaa.netlify.app" target="_blank" class="keybinding__label">PLAY NOW</a>
+                  </div>
+                </div>
+                <div class="feature__icons">
+                      <img src="icons/cordova.png" />
+                      <img src="icons/firebase.png" />
+                    </div>
+                  </div>
+                  <hr />
+                  <div>
+                    <div class="feature__doc">
+                      <img src="img/1652271551916.jpg"  />
+                      <div>
+                    <p>An internship project for my university degree, In this project I created a data visualization application for the national office of electricity and drinking water (ONEE - Branche Eau). This app has access to a part of the company's database and it reforms the data in form of statistics.</p>
+                    <a href="https://oneep.netlify.app" target="_blank" class="keybinding__label">TRY DEMO</a>
+                  </div>
+                </div>
+                <div class="feature__icons">
+                      <img src="icons/firebase.png" />
+                      <img src="icons/bootstrap.png" />
+                      <img src="icons/mysql.png" />
+                      <img src="icons/php.png" />
+                      <img src="icons/400px-UML_logo.svg.png" />
+                      <img src="icons/chartjs.png" />
+                    </div>
+                  </div>
+            
+                  <hr/>
+                  <div>
+                    <div class="feature__doc">
+                      <div>
+                        <h3 class="section__title">MATRIX DETERMINANT</h3>
+                        <p>My first real challenging project since I joined the industry of programming, this project aims to calculate the determinant of a metrix level (n). It took me so long but it taught me a lot of important concepts like controlling the memory and recursively etc...
+                        </p>
+                       <a href="https://github.com/47kyo/Matrix-Determinant-Calculator/blob/main/main.c" target="_blank" class="keybinding__label">SOURCE CODE</a>
+                  </div>
+                </div>
+                <div class="feature__icons">
+                  <img src="icons/c.png" />
+                    </div>
+                  </div>
+                  </div>
+              
+              
+            </code>
+          </pre>
+        </div>
+      </div>
+      <div class="keybinding" id="skills">
+        <h3 class="section__title"  >⭐ SKILLS</h3>
+        <div class="keybinding__list">
+          <ul class="keybinding__detail">
+            <h3 class="keybinding__title">Client-Side</h3>
+            <li>Next.js</li>
+            <li>React</li>
+            <li>HTML & CSS  </li>
+            <li>Bootstrap </li>
+          </ul>
+          <ul class="keybinding__detail">
+            <h3 class="keybinding__title">Server-Side</h3>
+            <li> NodeJS </li>
+            <li> NestJs </li>
+            <li> Express </li>
+            <li> Serverless </li>
+          </ul>
+          <ul class="keybinding__detail">
+            <h3 class="keybinding__title">Programming Languages</h3>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>C</li>
+            <li>C#</li>
+          </ul>
+          <ul class="keybinding__detail">
+            <h3 class="keybinding__title">Databases</h3>
+            <li>MySQL </li>
+            <li>Firebase</li>
+            <li>MongoDB</li>
+            <li>Redis</li>
+          </ul>
+          <ul class="keybinding__detail">
+            <h3 class="keybinding__title">Management Methodology</h3>
+            <li>UML</li>
+            <li>2TUP</li>
+          </ul>
+          <ul class="keybinding__detail">
+            <h3 class="keybinding__title">Other Web techs</h3>
+            <li>WebRTC </li>
+            <li>Websockets </li>
+            <li>Recaptcha</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="changelog" id="education">
+      <div class="wrapper">
+        <h3 class="section__title">📚 EDUCATION</h3>
+        <div class="changelog__item">
+          <div class="changelog__meta">
+            <h4 class="changelog__title">Superior University Degree</h4>
+            <small class="changelog__date">Computer engineering</small>
+          </div>
+          <div class="changelog__detail">
+            <ul>
+              <li>Programming Languages</li>
+              <li>Design Patterns</li>
+              <li>Data Structure</li>
+              <li>Mathematical Sciences</li>
+            </ul>
+          </div>
+        </div>
+        <div class="changelog__item">
+          <div class="changelog__meta">
+            <h4 class="changelog__title">High School Degree</h4>
+            <small class="changelog__date">Physical Sciences</small>
+          </div>
+        </div>
+        <div class="callout">
+          <hr>
+          <p>Contact me on my email <span class="link link--light">oulahtake@gmail.com.</span>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="main.js"></script>
+
+
+    
+    <script>
+      let backpack,
+    animationTimeline = gsap.timeline({}),
+    animationFinished = false;
+
+// Sizes
+const sizes = {
+  width: 330,
+  height: 285
+}
+
+// Cursor Settings
+const cursor = {
+  x: 0,
+}
+
+
+
+/**
+ * Base
+ */
+
+// Canvas
+const canvas = document.querySelector('canvas.webgl')
+
+// Scene
+const scene = new THREE.Scene()
+
+
+/**
+ * Geometries
+ */
+
+let loader = new THREE.GLTFLoader();
+const macModel = 'https://raw.githubusercontent.com/47kyo/PHP-MVC-School-Managment/main/Mac.glb'
+const gunModel = 'https://raw.githubusercontent.com/47kyo/PHP-MVC-School-Managment/main/Revolver.glb'
+const carModel = 'https://raw.githubusercontent.com/47kyo/PHP-MVC-School-Managment/main/RangeRover.glb'
+const pikachuModel = 'https://raw.githubusercontent.com/47kyo/PHP-MVC-School-Managment/main/Pikachu.glb'
+const policeModel = 'https://raw.githubusercontent.com/47kyo/PHP-MVC-School-Managment/main/PoliceCar.glb'
+
+
+loader.load(macModel, function ( gltf ) {
+  backpackContainer = new THREE.Group();
+  backpack = new THREE.Group();
+  gltf.scene.position.set(0, 0 , 0)
+  backpack.add( gltf.scene );
+  backpackContainer.add( backpack );
+  scene.add(backpackContainer);
+  animate();
+});
+
+
+/**
+ * Lights
+ */
+
+const ambientLight = new THREE.AmbientLight("#fff")
+scene.add(ambientLight)
+
+const pointLight = new THREE.PointLight("#ffffff", 1.75, 100)
+pointLight.position.set( 0, 1, 15 );
+scene.add(pointLight)
+
+
+/**
+ * Camera
+ */
+
+const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 0.01, 50)
+camera.position.z = 13;
+camera.position.y = 1;
+
+
+scene.add(camera)
+
+
+/**
+ * Renderer
+ */
+
+const renderer = new THREE.WebGLRenderer({
+  canvas: canvas,
+  antialias: true,
+  alpha: true,
+})
+renderer.outputEncoding = THREE.sRGBEncoding
+renderer.physicallyCorrectLights
+renderer.setSize(sizes.width, sizes.height)
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+
+/**
+ * Animate
+ */
+ let signal = 1 
+ function animate() {
+  
+  requestAnimationFrame ( animate );
+  backpack.rotation.y += 0.01;
+  backpack.rotation.z += signal*0.001;
+  if(backpack.rotation.z>0.4)
+  signal=-1
+  if(backpack.rotation.z<-0.4)
+  signal=1
+
+  //Render the scene
+  renderer.render(scene, camera);
+  
+}
+    </script>
+  </body>
+</html>
