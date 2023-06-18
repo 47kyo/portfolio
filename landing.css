@@ -92,6 +92,11 @@ hr {
   gap: 30px;
 }
 
+.feature__doc h3 {
+  margin: 0;
+  padding: 0;
+}
+
 .feature__doc img {
   border-radius: 5px;
   border: 2px solid var(--code-bg-color);
