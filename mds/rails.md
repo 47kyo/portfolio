@@ -499,65 +499,72 @@ and there for the controller name should be Api::V1::CarsController
 put routes before controller
 
 ```ruby
-class Api::V1::CarsController < Api::V1::BaseController
-
+# app/controllers/api/v1/players_controller.rb
+class Api::V1::PlayersController < Api::V1::BaseController
 def index
-  cars = current_manufacturer.cars
-  total_count = cars.count
-  cars = cars.parse_include(include).paginate(params).ordered(params)
-  cars = SerializableResource.new(
-    cars,
-    each_serializer: V1::Super::ServiceOrderSerializer,
-    include:         include,
-  )
-  render array_response(data: cars, total_count: total_count)
+players = current_team.players
+total_count = players.count
+players = players.parse_include(include).paginate(params).ordered(params)
+players = SerializableResource.new(
+players,
+each_serializer: V1::Super::ServiceOrderSerializer,
+include: include,
+)
+render array_response(data: players, total_count: total_count)
 end
 
 def destroy
-  car = SerializableResource.new(
-    current_car,
-    serializer: V1::Super::ViewingReportSerializer,
-    include:    include,
-  )
-  current_car.destroy!
-  render single_response(data: car)
+player = SerializableResource.new(
+current_player,
+serializer: V1::Super::ViewingReportSerializer,
+include: include,
+)
+current_player.destroy!
+render single_response(data: player)
 end
 
-
 def create
-  create_params = Car.super_create_params(params.require(:car))
-  car = current_manufacturer.cars.create!(create_params)
-  car = SerializableResource.new(
-    car,
-    serializer: V1::Super::ViewingReportSerializer,
-    include:    include
-  )
-  render single_response(data: car)
+create_params = Player.super_create_params(params.require(:player))
+player = current_team.players.create!(create_params)
+player = SerializableResource.new(
+player,
+serializer: V1::Super::ViewingReportSerializer,
+include: include
+)
+render single_response(data: player)
 end
 
 def update
-  #update is similar to create but we use current_car.update!(update_params)
+current_player.update!(update_params)
+player = SerializableResource.new(
+current_player,
+serializer: V1::Super::ViewingReportSerializer,
+include: include
+)
+render single_response(data: player)
 end
 
 def show
-  car = SerializableResource.new(
-    current_car,
-    serializer: V1::Super::ViewingReportSerializer,
-    include:    include
-  )
-  render single_response(data: car)
+player = SerializableResource.new(
+current_player,
+serializer: V1::Super::ViewingReportSerializer,
+include: include
+)
+render single_response(data: player)
 end
 
-#private controller methods
+# Private controller methods
+
 private
-def current_manufacturer
-  Manifacturer.findh!(params[:manufacturer_id] || params[:id])
+
+def current_team
+Team.find(params[:team_id] || params[:id])
 end
 
-def current_car
-  Car.findh!(params[:car_id] || params[:id])
+def current_player
+Player.find(params[:player_id] || params[:id])
 end
-
+end
 ```
 
 #### 5.2 include & parse_include
@@ -575,6 +582,8 @@ set `include` manually or to `include: []` on case to public routes.
 
 `parse_include` , take assossiations from the include parmas and eger load them so the serizer wont have n+ query problems in case of each_serializer
 
+#### 5.3 pagination
+
 pagination and ordreing functionalities are comming from
 `include Paginateable`
 `include Orderable`
@@ -591,7 +600,7 @@ This how request params should look like for order and paginate
 }
 ```
 
-#### 5.3 Params handleling
+#### 5.4 Params handleling
 
 `Car.super_create_params(params.require(:car))`, validate the params coming from a controoler when creating or updating a record
 
@@ -625,7 +634,9 @@ end
 
 ```
 
-#### 5.3 reponses
+#### 5.5 reponses
+
+findh! and create! already return bad request errors if the validation faild and the record were not found
 
 ```ruby
 we can use inside the controller
@@ -648,7 +659,7 @@ single reponse and array response
 
 ```
 
-#### 5.4 Auth
+#### 5.6 Auth
 
 ```ruby
 class Api::Web::V1::PublicBaseController < Api::V1::BaseController
@@ -673,7 +684,7 @@ class Api::Web::V1::BidItemsController < Api::Web::V1::PublicBaseController
 
 ```
 
-#### 5.5 life cercle
+#### 5.7 life cercle
 
 ```ruby
 before_action :validate_draft_param, only: [:create, :update]
@@ -886,9 +897,10 @@ end
 namespace 'api' do
        namespace 'super_admin' do
            namespace 'v1' do
-             # many to many
-             resources :manufacturer, only: [:index, :show, :update] do #if we want to elinite destroy
-              resources :cars, only: [:index]
+             # specify the teams routes
+             resources :teams, only: [:index] do
+              # many to many
+              resources :players, only: [:index, :show]
              end
           end
         end
@@ -900,19 +912,8 @@ it will create these routes
 | Route | Controller Action |
 |---------------------------------------|----------------------|
 | /api/v1/teams | index |
-| /api/v1/teams/new | new |
-| /api/v1/teams | create |
-| /api/v1/teams/<team_id> | show |
-| /api/v1/teams/<team_id>/edit | edit |
-| /api/v1/teams/<team_id> | update |
-| /api/v1/teams/<team_id> | destroy |
 | /api/v1/teams/<team_id>/players | index |
-| /api/v1/teams/<team_id>/players/new | new |
-| /api/v1/teams/<team_id>/players | create |
 | /api/v1/teams/<team_id>/players/<player_id> | show |
-| /api/v1/teams/<team_id>/players/<player_id>/edit | edit |
-| /api/v1/teams/<team_id>/players/<player_id> | update |
-| /api/v1/teams/<team_id>/players/<player_id> | destroy |
 
 ```
 this routes will trigger the controller on /app/controllers/api/super_admin/v1/brokers_controller.rb
@@ -923,26 +924,15 @@ class Api::SuperAdmin::V1::BrokesController < Api::SuperAdmin::V1::BaseControlle
 
 
 
+# add extra route
 resources :users, only: [:index, :show, :update] do
    get ':user_id/integration_leads', on: :collection,
                                      action: :fetch_external_leads,
-                                     controller: :broker_lead_configs #overwite controller
-   get 'leads', on: :collection #the controller will be automatically users and action          leads
-end
-
-BaseController is a controller that extends ApplicationController and include more feature of validations depend on the name space!
 
 
-it usually looks something like
-class Api::SuperAdmin::V1::BaseController < Api::V1::BaseController
-  include AuthenticationSuperAdmin
-end
-
-
-specify another controller
+# specify another controller
+# the the controlelr shouyld be brokers_controller but we wanna use another one
 resources :brokers, only: [:index], controller: :bank_brokers
-
-now the endpoint will be /brokers but the controlelr does not have to be nessessary brokers_controller!
 
 ```
 
@@ -1085,7 +1075,8 @@ end
 
 now if we include t his module in the Class it will have that scope, while normal Modules can makes us only add methods to a class!
 
-More url Orm and sql for practice
+### 100 More url Orm and sql for practice
+
 //simple orm and how they are structred
 ///active record examples
 bid_item = Broker.where(public_search_enabled: true)
@@ -1159,7 +1150,7 @@ items = BidItemDetail.includes(:bid_item).joins(bid_item: [:broker])
 use includes here only if we need the assosation bid_item of each record for future use
 like looping throu a loop and displaying them so we will avoid an extra query for each record!
 
-SELECT bid_item_details._, bid_items._ //with includes
+SELECT bid*item_details.*, bid*items.* //with includes
 SELECT bid_item_details.\* /without includes
 --rest
 FROM bid_item_details
@@ -1330,7 +1321,7 @@ xx.pluck(:id) # 2
 so it return a single value or an array
 so just use select
 
-Hooks
+### 109 Hooks
 
 Hooks are good to perform side querueis when a record is created or updated etc..
 for example! We can set a hash_id before eeach record before its created
