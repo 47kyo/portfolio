@@ -336,3 +336,129 @@ table td:first-child {
     transform: translate3d(0, 0, 0);
   }
 }
+
+/****************************/
+.coursePageWrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.coursePageWrapper hr {
+  border: none;
+  border-top: 1px solid #7c7a77;
+}
+
+.siveBar {
+  background: #1b1a17;
+  width: 300px;
+  padding: 20px;
+  overflow-y: scroll;
+  color: #d1cfcf;
+  border-right: 1px solid #7c7a77;
+  display: flex;
+  flex-direction: column;
+}
+
+.siveBar a {
+  color: #d1cfcf;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.coursePageWrapper h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  border-bottom: 1px solid var(--accent-color-light);
+  color: #d1cfcf;
+}
+
+.siveBar ul {
+  padding: 0;
+}
+
+.siveBar .logo {
+  margin: 0;
+  display: block;
+  margin-top: auto;
+  font-size: 10px;
+  font-weight: 600;
+  color: #857e7e;
+}
+
+.siveBar li {
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 0px;
+  list-style: none;
+}
+
+.siveBar li ul {
+  margin: 0px 15px;
+}
+
+.pageContent {
+  font-family: monospace;
+  padding: 15px 30px;
+  flex: 1;
+  overflow-y: auto;
+  color: #d1cfcf !important;
+  background-color: #222222;
+}
+
+.pageContent p {
+  color: #d1cfcf;
+}
+
+code {
+  color: red;
+  background-color: white;
+  padding: 2px 5px;
+  font-size: 11px;
+  border-radius: 5px;
+}
+
+.pageContent strong {
+  color: red;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.pageContent em {
+  color: orange;
+  font-style: normal;
+}
+
+.pageContent a {
+  color: rgb(155, 155, 219);
+  text-decoration: underline;
+}
+
+table,
+th,
+td,
+tr,
+tbody {
+  background-color: #191919 !important;
+  color: d1cfcf;
+  font-size: 12px;
+}
+
+h3 {
+  font-size: 18px;
+  color: #b35406;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 14px;
+  color: #da9761;
+  text-transform: uppercase;
+}
+
+.pageContent img {
+  width: 500px;
+  margin-left: auto;
+  border: 3px solid black;
+}

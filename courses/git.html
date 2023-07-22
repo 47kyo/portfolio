@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anas oulahtak - portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../landing.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"
+      integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
+    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link rel="author" href="Anas Oulahtak" />
+    <style>
+      html,
+      body {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="coursePageWrapper">
+      <div class="siveBar">
+        <h1 class="hero__title glitch" data-text="GIT">GIT</h1>
+        <ul id="$ul"></ul>
+        <div class="logo">WRITTEN BY ANAS OULAHTAL [WEBSITE]</div>
+      </div>
+      <div id="$content" class="pageContent"></div>
+    </div>
+  </body>
+</html>
+<script>
+  var converter = new showdown.Converter();
+  fetch("../mds/git.md")
+    .then((response) => response.text())
+    .then((mdContent) => {
+      var html = converter.makeHtml(mdContent);
+      $content.innerHTML = html;
+      hljs.highlightAll();
+      const titles = $content.getElementsByTagName("h3");
+      let index = 1;
+      for (let i of titles) {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="#${i.id}">${i.textContent}</a>`;
+        $ul.appendChild(li);
+        const childs = document.querySelectorAll(`h4[id^="${index}"]`);
+        if (childs.length) {
+          const ul = document.createElement("ul");
+          for (let child of childs) {
+            const li = document.createElement("li");
+            li.innerHTML = `<a href="#${child.id}">${child.textContent}</a>`;
+            ul.appendChild(li);
+          }
+          li.appendChild(ul);
+          $ul.appendChild(li);
+        }
+        index++;
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+</script>

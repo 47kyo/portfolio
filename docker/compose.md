@@ -1,5 +1,0 @@
-## SUMMERY
-- WHY DOCKER
-- IMAGE
-
----
