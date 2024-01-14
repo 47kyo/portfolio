@@ -13,7 +13,7 @@ var getAll = function (selector, scope) {
 if (document.getElementsByClassName("demo").length > 0) {
   var i = 0;
   var txt = `Welcome to my website! 
-            I'm a 24-year-old full-stack developer with a passion for backend development and low-level concepts such as optimization. I find joy in unraveling core concepts and continuously seek knowledge. Always eager to learn and explore things about this field. 
+            I'm an experienced full-stack developer with a strong focus on backend development and a keen interest in optimizing low-level concepts. I find joy in unraveling fundamental principles and have actively contributed to different projects, where my efforts were particularly concentrated on the backend, constituting approximately 70% of the work. My commitment to continuous learning and exploration drives my passion for this field.
             `;
   var speed = 20;
 
