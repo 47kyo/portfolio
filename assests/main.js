@@ -13,7 +13,7 @@ var getAll = function (selector, scope) {
 if (document.getElementsByClassName("demo").length > 0) {
   var i = 0;
   var txt = `Welcome to my website! 
-            I'm an experienced full-stack developer with a strong focus on backend development and a keen interest in optimizing low-level concepts. I find joy in unraveling fundamental principles and have actively contributed to different projects, where my efforts were particularly concentrated on the backend, constituting approximately 70% of the work. My commitment to continuous learning and exploration drives my passion for this field.
+            I'm an experienced full-stack developer with a focus on server-side development and a keen interest in optimizing low-level concepts. Actively contributing to different projects, I currently work as a full-stack developer in a fastgrowing company in Uppsala, Sweden. In addition to my university degree, I've completed several online courses focusing on specific technologies and concepts. My commitment to continuous learning and exploration drives my passion for this field.
             `;
   var speed = 20;
 
